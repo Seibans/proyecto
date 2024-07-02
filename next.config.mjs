@@ -1,4 +1,13 @@
+import MillionLint from "@million/lint";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+	experimental: {
+		reactCompiler: true,
+	},
+};
+export default MillionLint.next({
+	rsc: true,
+	filter: {
+		include: "**/components/*.{mtsx,mjsx,tsx,jsx}",
+	},
+})(nextConfig);
